@@ -1,0 +1,64 @@
+﻿<Window x:Class="RadioactivityDecayCalculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RadioactivityDecayCalculator"
+        mc:Ignorable="d"
+        Icon="Icon1.ico"
+        Title="Radioactive Decay Calculator" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75*" />
+            <RowDefinition Height="310*" />
+            <RowDefinition Height="38*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="50" Width="561" Grid.RowSpan="2">
+                <Viewbox>
+                    <TextBlock Foreground="Blue">Nuclide Decay Calculator</TextBlock>
+                </Viewbox>
+            </Label>
+            <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12">
+                Time for total activity to decay
+            </Label>
+            <TextBlock Name="tbTotalActivityDecay" Foreground="Blue" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15" Padding="5">
+                0
+            </TextBlock>
+        </Grid>
+        <ScrollViewer Grid.Row="1" >
+            <DataGrid Name="dgNuclide" IsReadOnly="True" AutoGenerateColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserReorderColumns="False" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nuclide Name"  Binding="{Binding Name}" Width="2*" />
+                    <DataGridTextColumn Header="Half Life" Binding="{Binding HalfLife}" Width="*"/>
+                    <DataGridTextColumn Header="Start Activity" Binding="{Binding StartActivity}" Width="*"/>
+                    <DataGridTextColumn Header="@ 1 Day" Binding="{Binding Day1}" Width="*"/>
+                    <DataGridTextColumn Header="@ 10 Day" Binding="{Binding Day10}" Width="*"/>
+                    <DataGridTextColumn Header="@ 100 Day" Binding="{Binding Day100}" Width="*"/>
+                    <DataGridTextColumn Header="@ 1000 Day" Binding="{Binding Day1000}" Width="*"/>
+                    <DataGridTextColumn Header="Days &lt; 1" Binding="{Binding FinishedDecay}" Width="*"/>
+                </DataGrid.Columns>
+                <DataGrid.CellStyle>
+                    <Style TargetType="DataGridCell" >
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Blue"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="False">
+                                <Setter Property="Background" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.CellStyle>
+            </DataGrid>
+        </ScrollViewer>
+        <Grid HorizontalAlignment="Stretch" Grid.Row="2">
+            <Button LayoutTransform="{StaticResource FontStretchExpanded}" Name="btnNewNuclide" Grid.RowSpan="2" Click="New_Nuclide_Click" Content="Add New Nuclide" />
+        </Grid>
+
+    </Grid>
+</Window>

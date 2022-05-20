@@ -1,0 +1,10 @@
+﻿<Application x:Class="RadioactiveDecayCal.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RadioactiveDecayCal"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ScaleTransform x:Key="FontStretchCondensed" ScaleX="0.8" />
+        <ScaleTransform x:Key="FontStretchExpanded" ScaleX="1.6" ScaleY="1.6" />
+    </Application.Resources>
+</Application>
