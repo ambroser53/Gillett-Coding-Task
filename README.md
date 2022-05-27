@@ -6,5 +6,5 @@ For testing, simply run the _Radioactive Decay Calculator.exe_ file at the root 
 
 For code review, open the solution file in visual studio or the folder in visual studio code. All the important code is in the root.
 
-# Instruction HTML/CSS/JS
+# Instructions HTML/CSS/JS
 Simply run index.html and use the program in your favourite browser.
